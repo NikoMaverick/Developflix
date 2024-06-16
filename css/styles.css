@@ -1,18 +1,37 @@
 /* styles.css */
 body {
-  font-family: Arial, sans-serif;
+  display: flex;
+  font-family: fantasy;
+  color: aliceblue;
+  background-image: url(https://hips.hearstapps.com/hmg-prod/images/210820-es-hbomax-heroka-headline-h-1631096272.jpg);
+  background-size: cover;
 }
 
 .genero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px ;
   margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  background-color: #f8f8f8;
+  padding: 30px;
+  border: 6px solid purple;
+  border-radius: 30px;
+  background-color: white;
+  background-image: url(https://i1.wp.com/itc.ua/wp-content/uploads/2021/09/hbo-max.jpg);
+  background-size: auto;
+}
+
+button {
+  border-radius: 30px;
+  background-color: purple;
+  color: white;
+  border-bottom-style: 50px solid black;
 }
 
 h2 {
+  font-family: fantasy;
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 
