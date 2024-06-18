@@ -1,83 +1,63 @@
 import peliculas from './peliculas.js'
 
-const actionOne = document.getElementById("actionOne");
-const thrillerOne = document.getElementById("thrillerOne");
-const adventureOne = document.getElementById("adventureOne");
 
-const generoContainer = document.querySelectorAll(".genero-container");
+const mostrarPelis = (generoContainer, generoId, ) => {
+  const contenedor = document.getElementById(generoContainer)
+  const listaPeliculas = peliculas.filter(peli => peli.genre_ids.includes(generoId))
 
-console.log(generoContainer[0]);
-console.log(generoContainer[1]);
-console.log(generoContainer[2]);
+  // listaPeliculas.forEach(peli => {
+  //   const template = `<div class='peliculas'><img src=https://image.tmdb.org/t/p/w200${peli.poster_path} alt=${peli.original_title}/><h2>${peli.original_title}</h2><p>${peli.vote_count}</p></div>`
+ 
+  //  Esto es innerHTML. Se usa bastante pero es menos segguro si no lo tenemos controlado   
+  //  contenedor.innerHTML += template
 
-const genero28 = document.getElementById("genero-28");
-const genero53 = document.getElementById("genero-53");
-const genero12 = document.getElementById("genero-12");
+  // insertAdjacentHTML es mucho más seguro que innerHTML. Es casi lo mismo
+  //   contenedor.insertAdjacentHTML("beforeend", template) 
+  // })
 
-console.log(genero28);
-console.log(genero53);
-console.log(genero12);
+  // for(let peli of listaPeliculas) {
+  //   const template = `<div class='peliculas'><img src=https://image.tmdb.org/t/p/w200${peli.poster_path} alt=${peli.original_title}/><h2>${peli.original_title}</h2><p>${peli.vote_count}</p></div>`
+  //   contenedor.innerHTML += template
+  // }
 
-const genreAction = peliculas.filter((element) => element.genre_ids.includes(28));
-const genreThriller = peliculas.filter((element) => element.genre_ids.includes(53));
-const genreAdventure = peliculas.filter((element) => element.genre_ids.includes(12));
-
-
-const genero = {
-    obtenerGenre: () => genreAdventure
-}
-console.log(genero)
-
-
-
-
-/* PRUEBAS
-
-const genreAction = peliculas.filter((element) => element.genre_ids.includes(28));
-const genreThriller = peliculas.filter((element) => element.genre_ids.includes(53));
-const genreAdventure = peliculas.filter((element) => element.genre_ids.includes(12));
-
-
-//const genero = document.querySelectorAll('genre_ids');
-
-const genero28 = document.getElementById("genero-28");
-const genero53 = document.getElementById("genero-53");
-const genero12 = document.getElementById("genero-12");
-
-
-const genreAction = 28;
-const genreThriller = 53;
-const genreAdventur = 12;
-
-
-const genreAction = peliculas.filter((element) => element.genre_ids.includes(28));
-const genreThriller = peliculas.filter((element) => element.genre_ids.includes(53));
-const genreAdventure = peliculas.filter((element) => element.genre_ids.includes(12));
-
-
-
-
-console.log(genreAction);
-console.log(genreThriller);
-console.log(genreAction);
-
-
-
-function obtenerGenero (a, b) {
-    
-    return a + b
-}
-console.log()
-
-
-const genero = {
-    obtenerGenre:() => genreAdventure
+  contenedor.innerHTML = listaPeliculas.map(peli => `<div class='peliculas'><img src=https://image.tmdb.org/t/p/w200${peli.poster_path} alt=${peli.original_title}/><h2>${peli.original_title}</h2><p>${peli.vote_count}</p></div>`).join("")
 }
 
-console.log(genero.obtenerGenre())
+mostrarPelis("genero-28", 28)
+mostrarPelis("genero-53", 53)
+mostrarPelis("genero-12", 12)
 
 
-actionOne.addEventListener('click' function() {
+// Esta es la forma HARD MODE
 
-})
-*/
+// //filtrado de pelis por genero 
+// const peliculaAccion = peliculas.filter(peli => peli.genre_ids.includes(28))
+// const peliculaThriller = peliculas.filter(peli => peli.genre_ids.includes(53))
+// const peliculaAdventures = peliculas.filter(peli => peli.genre_ids.includes(12))
+
+// //contenedores
+// const generoAccion = document.getElementById("genero-28")
+// const generoThriller = document.getElementById("genero-53")
+// const generoAdventures = document.getElementById("genero-12")
+
+// const addtoHtml = (elementHTML, objetToAdd) => {
+//   for (let peli of objetToAdd) {
+//     const elementDiv = document.createElement("div")
+//     const elementImg = document.createElement("img")
+//     const elementP = document.createElement("p")
+  
+//     elementDiv.className = "peliculas"
+//     elementImg.src = `https://image.tmdb.org/t/p/w200${peli.poster_path}`
+//     elementImg.alt = peli.original_title
+//     elementP.innerHTML = peli.original_title
+//     elementDiv.appendChild(elementImg)
+//     elementDiv.appendChild(elementP)
+
+//     elementHTML.appendChild(elementDiv)
+
+//   }
+// }
+
+// addtoHtml(generoAccion, peliculaAccion)
+
+//REPETIR EL EJERCICIO PARA PRACTICAR
